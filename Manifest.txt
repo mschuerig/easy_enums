@@ -1,0 +1,8 @@
+History.txt
+Manifest.txt
+README.rdoc
+Rakefile
+lib/easy_enums.rb
+rails/init.rb
+test/test_easy_enums.rb
+test/test_helper.rb
