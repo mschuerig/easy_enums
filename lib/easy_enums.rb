@@ -44,8 +44,8 @@ module EasyEnumerations
     end
     
     def each_name
-      all.each do |role_type|
-        yield role_type.name
+      all.each do |obj|
+        yield obj.name
       end
     end
   end 
