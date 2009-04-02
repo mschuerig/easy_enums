@@ -5,10 +5,10 @@ require File.dirname(__FILE__) + '/lib/easy_enums'
 # Run 'rake -T' to see list of generated tasks (from gem root directory)
 $hoe = Hoe.new('easy_enums', EasyEnumerations::VERSION) do |p|
   p.developer('Michael Schuerig', 'michael@schuerig.de')
-  p.changes              = p.paragraphs_of("History.txt", 0..1).join("\n\n")
-  # p.extra_deps         = [
-  #   ['activesupport','>= 2.0.2'],
-  # ]
+  p.changes            = p.paragraphs_of("History.txt", 0..1).join("\n\n")
+  p.extra_deps         = [
+    ['activerecord','>= 2.0.2'],
+  ]
   p.extra_dev_deps = [
     ['newgem', ">= #{::Newgem::VERSION}"]
   ]
