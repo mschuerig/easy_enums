@@ -1,6 +1,6 @@
 
 module EasyEnumerations
-  VERSION = '0.0.1'
+  VERSION = '0.0.2'
   
   def self.included(base)
     base.extend(ClassMethods)
@@ -55,7 +55,7 @@ module EasyEnumerations
       @model = model
     end
     
-    def create(options)
+    def value(options)
       unless @model.exists?(:name => options[:name])
         @model.create!(options)
       end

@@ -37,9 +37,9 @@ class TestEasyEnums < Test::Unit::TestCase
     include EasyEnumerations
     
     enumerates do |e|
-      e.create :name => 'red'
-      e.create :name => 'green'
-      e.create :name => 'blue'
+      e.value :name => 'red'
+      e.value :name => 'green'
+      e.value :name => 'blue'
     end
   end
   
@@ -48,10 +48,10 @@ class TestEasyEnums < Test::Unit::TestCase
     include EasyEnumerations
     
     enumerates do |e|
-      e.create :name => 'Spring'
-      e.create :name => 'Summer'
-      e.create :name => 'Fall'
-      e.create :name => 'Winter'
+      e.value :name => 'Spring'
+      e.value :name => 'Summer'
+      e.value :name => 'Fall'
+      e.value :name => 'Winter'
     end
   end
   

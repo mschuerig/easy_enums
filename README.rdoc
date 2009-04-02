@@ -17,9 +17,9 @@ Simplistic enumerations for ActiveRecord.
 
   class Color < ActiveRecord::Base
     enumerates do |e|
-      e.create :name => 'red'
-      e.create :name => 'green'
-      e.create :name => 'blue'
+      e.value :name => 'red'
+      e.value :name => 'green'
+      e.value :name => 'blue'
     end
   end
   
