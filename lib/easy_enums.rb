@@ -1,6 +1,6 @@
 
 module EasyEnumerations
-  VERSION = '0.0.4'
+  VERSION = '0.0.5'
   
   def self.included(base)
     base.extend(ClassMethods)
@@ -21,6 +21,10 @@ module EasyEnumerations
       @enum_cache.values
     end
     
+    def names
+      @enum_cache.keys
+    end
+
     def count(*args)
       if args.empty?
         @enum_cache.size
@@ -48,6 +52,21 @@ module EasyEnumerations
         yield obj.name
       end
     end
+
+    def valid_name!(name, options = {})
+      name = ActiveSupport::Inflector.singularize(name) if options[:singularize]
+      name = clean_name(name) if options[:clean]
+      unless names.include?(name)
+        raise ArgumentError, "Not a valid name for a #{self.name}: #{name.inspect}"
+      end
+      name
+    end
+
+    private
+
+    def clean_name(name)
+      ActiveSupport::Inflector.transliterate(name).gsub(' ', '_').gsub(/[^[:alnum:]_]/, '').underscore.to_s
+    end
   end 
   
   class EnumerationCreator
@@ -74,12 +93,17 @@ module EasyEnumerations
       end
     
       def reload
+        @keys = @values = nil
         @cache = @model.find(:all).inject({}) do |c, e|
           c[e.name] = e
           c
         end
       end
       
+      def keys
+        @keys ||= @cache.keys
+      end
+
       def values
         @values ||= @cache.values
       end

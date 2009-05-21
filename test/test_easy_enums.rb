@@ -82,8 +82,34 @@ class TestEasyEnums < Test::Unit::TestCase
       Enumbed.all.map { |e| e.name }.sort
   end
   
+  def test_names
+    assert_equal ['blue', 'green', 'red'],
+      Enumbed.names.sort
+  end
+
   def test_two_enums_do_not_interfere
     assert_equal ["Fall", "Spring", "Summer", "Winter"],
       Season.all.map { |e| e.name }.sort
+  end
+
+  def test_reload
+    Enumbed.create!(:name => 'pink')
+    Enumbed.reload
+    assert_equal ['blue', 'green', 'pink', 'red'],
+      Enumbed.all.map { |e| e.name }.sort
+    assert_equal ['blue', 'green', 'pink', 'red'],
+      Enumbed.names.sort
+  end
+
+  def test_valid_name_for_valid_name
+    assert_nothing_raised do
+      Enumbed.valid_name!('red')
+    end
+  end
+
+  def test_valid_name_for_invalid_name
+    assert_raises ArgumentError do
+      Enumbed.valid_name!('black')
+    end
   end
 end
