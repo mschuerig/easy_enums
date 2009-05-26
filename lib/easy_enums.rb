@@ -1,6 +1,6 @@
 
 module EasyEnumerations
-  VERSION = '0.0.5'
+  VERSION = '0.0.6'
   
   def self.included(base)
     base.extend(ClassMethods)
@@ -54,6 +54,7 @@ module EasyEnumerations
     end
 
     def valid_name!(name, options = {})
+      name = name.to_s
       name = ActiveSupport::Inflector.singularize(name) if options[:singularize]
       name = clean_name(name) if options[:clean]
       unless names.include?(name)
