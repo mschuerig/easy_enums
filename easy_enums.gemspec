@@ -2,12 +2,17 @@
 
 Gem::Specification.new do |s|
   s.name = %q{easy_enums}
-  s.version = "0.0.6"
+  s.version = "0.0.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Schuerig"]
-  s.date = %q{2009-05-26}
-  s.description = %q{Simplistic enumerations for ActiveRecord.}
+  s.date = %q{2009-05-30}
+  s.description = %q{Simplistic enumerations for ActiveRecord.
+
+Consider using enumerate_by, a more mature solution to the
+same problem
+
+http://github.com/pluginaweek/enumerate_by}
   s.email = ["michael@schuerig.de"]
   s.extra_rdoc_files = ["History.txt", "Manifest.txt", "README.rdoc"]
   s.files = ["History.txt", "Manifest.txt", "README.rdoc", "Rakefile", "lib/easy_enums.rb", "rails/init.rb", "test/test_easy_enums.rb", "test/test_helper.rb"]
@@ -16,7 +21,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{easy_enums}
   s.rubygems_version = %q{1.3.3}
-  s.summary = %q{Simplistic enumerations for ActiveRecord.}
+  s.summary = %q{Simplistic enumerations for ActiveRecord}
   s.test_files = ["test/test_helper.rb", "test/test_easy_enums.rb"]
 
   if s.respond_to? :specification_version then

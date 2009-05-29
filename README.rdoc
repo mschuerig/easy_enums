@@ -6,6 +6,11 @@
 
 Simplistic enumerations for ActiveRecord.
 
+Consider using enumerate_by, a more mature solution to the
+same problem
+
+http://github.com/pluginaweek/enumerate_by
+
 == FEATURES/PROBLEMS:
 
 * Easy access to cached enumerations.
